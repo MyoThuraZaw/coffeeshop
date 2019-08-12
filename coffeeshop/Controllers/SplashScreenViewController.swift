@@ -16,8 +16,13 @@ class SplashScreenViewController: UIViewController {
         super.viewDidLoad()
 
         splashImageView.image = UIImage(named: "SplashScreenImage")
+        
+        perform(#selector(toOnBoarding), with: nil, afterDelay: 1)
     }
     
+    @objc func toOnBoarding() {
+        performSegue(withIdentifier: "onboardsegue", sender: self)
+    }
 
     /*
     // MARK: - Navigation

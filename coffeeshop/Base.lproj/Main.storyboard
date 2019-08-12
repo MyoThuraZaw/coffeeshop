@@ -33,6 +33,7 @@
                     </view>
                     <connections>
                         <outlet property="splashImageView" destination="2wu-B3-hyi" id="6He-ld-dK7"/>
+                        <segue destination="HGi-3u-FrK" kind="show" identifier="onboardsegue" id="LK2-PX-cXn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -46,13 +47,68 @@
                     <view key="view" contentMode="scaleToFill" id="AqH-z3-Uca">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q5X-vK-nSz">
+                                <rect key="frame" x="30" y="647" width="354" height="120"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yNF-cT-lhN">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0g9-Xm-Zds">
+                                                <rect key="frame" x="0.0" y="0.0" width="169.5" height="50"/>
+                                                <color key="backgroundColor" red="0.72549019607843135" green="0.50196078431372548" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Register">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMf-3O-yRb">
+                                                <rect key="frame" x="184.5" y="0.0" width="169.5" height="50"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Log In">
+                                                    <color key="titleColor" red="0.72549019607843135" green="0.50196078431372548" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginButton_pressed:" destination="HGi-3u-FrK" eventType="touchUpInside" id="EWk-pX-BRe"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCb-Be-4zw">
+                                        <rect key="frame" x="0.0" y="70" width="354" height="50"/>
+                                        <state key="normal" title="Register">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="connectWithFB_pressed:" destination="HGi-3u-FrK" eventType="touchUpInside" id="Ue6-iR-BZM"/>
+                                            <action selector="connectedWithFB_touchDown:" destination="HGi-3u-FrK" eventType="touchDown" id="xnW-oe-ybz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="6vF-IR-Mfp"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="x2B-3L-zrs" firstAttribute="bottom" secondItem="q5X-vK-nSz" secondAttribute="bottom" constant="95" id="9Wf-Nb-rDl"/>
+                            <constraint firstItem="q5X-vK-nSz" firstAttribute="leading" secondItem="x2B-3L-zrs" secondAttribute="leading" constant="30" id="ELc-Yt-n8L"/>
+                            <constraint firstItem="x2B-3L-zrs" firstAttribute="trailing" secondItem="q5X-vK-nSz" secondAttribute="trailing" constant="30" id="Gg4-75-WjT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="x2B-3L-zrs"/>
                     </view>
+                    <connections>
+                        <outlet property="connectWithFBButton" destination="iCb-Be-4zw" id="1UE-Un-xC8"/>
+                        <outlet property="loginButton" destination="BMf-3O-yRb" id="izs-c5-Pjh"/>
+                        <outlet property="registerButton" destination="0g9-Xm-Zds" id="nlI-83-9jD"/>
+                        <segue destination="XKj-86-amh" kind="show" identifier="loginsegue" id="Ha7-bF-gBO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKA-sc-O2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="100"/>
+            <point key="canvasLocation" x="937.68115942028987" y="99.776785714285708"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="xXj-0C-a03">
@@ -64,6 +120,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pu8-Gk-Z4P"/>
                     </view>
+                    <connections>
+                        <segue destination="ZNY-jN-tAe" kind="show" identifier="mapsegue" id="IrN-rU-aBy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AnF-SM-0Of" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,6 +138,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="giN-Fh-4Wj"/>
                     </view>
+                    <connections>
+                        <segue destination="gfe-u9-6pz" kind="show" identifier="menusegue" id="TY3-Rm-xyP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7BW-WN-RlN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,6 +156,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1FI-Tj-aQo"/>
                     </view>
+                    <connections>
+                        <segue destination="b9M-dA-fUf" kind="show" identifier="detailsegue" id="3DP-cL-aXW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZT-UH-WUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
