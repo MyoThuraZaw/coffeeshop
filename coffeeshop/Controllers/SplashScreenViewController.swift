@@ -10,10 +10,12 @@ import UIKit
 
 class SplashScreenViewController: UIViewController {
 
+    @IBOutlet weak var splashImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        splashImageView.image = UIImage(named: "SplashScreenImage")
     }
     
 
